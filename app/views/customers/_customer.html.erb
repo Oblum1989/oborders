@@ -1,0 +1,15 @@
+<tr id="<%= customer.id %>">
+    <th scope="row"><%= customer.nit %></th>
+    <td><%= customer.name %></td>
+    <td><%= customer.celphone %></td>
+    <td><%= customer.addres %></td>
+    <td><%= customer.email %></td>
+    <td> 
+        <%= link_to  edit_customer_path(customer), remote: true do %>
+            <%= fa_stacked_icon "pencil inverse", base: "circle" %>
+        <% end %>
+        <%= link_to  customer, method: :delete, data: { confirm: 'Estas seguro?' } do %>
+            <%= fa_stacked_icon "trash inverse", base: "circle" %>
+        <% end %>
+    </td>
+</tr>

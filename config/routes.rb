@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'customers/index'
-  get 'customers/show'
-  get 'customers/new'
-  get 'customers/edit'
+  resources :customers
   devise_for :users
   resources :orders
 

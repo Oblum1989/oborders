@@ -1,0 +1,7 @@
+<% if @customer.errors.empty? %>
+  $('table tbody').append(' <%= j render "customer", customer: @customer %>');
+  $('.alert-success').html("El cliente ha sido creado con éxito").show();
+  $('#customer-modal').modal('hide');
+<% else %>
+  alert('<%= @customer.errors.full_messages[0] %>');
+<% end %>

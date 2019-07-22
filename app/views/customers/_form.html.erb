@@ -1,0 +1,63 @@
+<div id="customer-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><%= title %></h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+
+            </div>
+            <%= form_for @customer, remote: true do |f| %>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><%= fa_icon "user" %></span>
+                        </div>
+                        <%= f.text_field :name, class: "form-control input-lg", placeholder: "Nombre del cliente" %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><%= fa_icon "id-card" %></span>
+                        </div>
+                        <%= f.text_field :nit, class: "form-control input-lg", placeholder: "Nit" %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><%= fa_icon "at" %></span>
+                        </div>
+                        <%= f.text_field :email, class: "form-control input-lg", placeholder: "Correo electronico" %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><%= fa_icon "phone" %></span>
+                        </div>
+                        <%= f.text_field :celphone, class: "form-control input-lg", placeholder: "Telefono" %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><%= fa_icon "home" %></span>
+                        </div>
+                        <%= f.text_field :addres, class: "form-control input-lg", placeholder: "Direccion" %>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <%= f.submit 'Crear', class: "btn btn-primary btn-block" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
