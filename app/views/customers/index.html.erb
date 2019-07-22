@@ -1,25 +1,23 @@
-<div class="jumbotron">
-    <div class="d-flex justify-content-between">
-        <h1 class="display-5">Lista de Clientes</h1>
-        <p class="lead pr-5">
-            <%= link_to new_customer_path, class: "btn btn-primary btn-lg", remote: true do %>
-                <%= fa_icon "plus" %> Nuevo Cliente
-            <% end %>
-        </p>
-    </div>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Nit</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Correo</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <%= render @customers %>
-        </tbody>
-    </table>
+<div class="d-flex justify-content-between">
+    <h1 class="display-5">Lista de Clientes</h1>
+    <p class="lead pr-5">
+        <%= link_to new_customer_path, class: "btn btn-primary btn-lg", remote: true do %>
+        <%= fa_icon "plus" %> Nuevo Cliente
+        <% end %>
+    </p>
 </div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nit</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Correo</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render @customers %>
+    </tbody>
+</table>
