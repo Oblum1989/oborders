@@ -1,8 +1,9 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   
   def index
-    @customers = Customer.all.order(created_at: :desc)   
+    @customers = Customer.where(user: current_user).order(created_at: :desc)   
   end
 
   def show
@@ -14,6 +15,7 @@ class CustomersController < ApplicationController
 
   def create  
     @customer = Customer.create(customer_params)
+    @customer.user = current_user
     if @customer.save 
       redirect_to customers_path, notice: "El cliente ha sido guardado exitosamente"
     else
