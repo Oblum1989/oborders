@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    
+    <%= render 'order_products/row_order_product', order_product: @order.order_products %>
+        
+    </tbody>
+    <p class="lead pr-5">
+        <%= link_to new_order_product_path(order_id: @order.id), class: "btn btn-success btn-lg", remote: true do %>
+            <%= fa_icon "plus" %> Nuevo Producto
+        <% end %>
+    </p>
+</table>

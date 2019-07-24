@@ -1,0 +1,7 @@
+<% if @order_product.errors.empty? %>
+  $('table tbody').append(' <%= j render "row_order_product", customer: @order_product %>');
+  $('.alert-success').html("El cliente ha sido creado con éxito").show();
+  $('#order_product-modal').modal('hide');
+<% else %>
+  alert('<%= @order_product.errors.full_messages[0] %>');
+<% end %>

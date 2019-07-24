@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :products, through: :order_product, dependent: :destroy
+  belongs_to :customer
+  has_many :order_products
+  has_many :products, through: :order_products, dependent: :destroy
 end
