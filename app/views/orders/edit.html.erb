@@ -1,10 +1,10 @@
-<h1 class="display-5">Nuevo Pedido</h1>
+<h1 class="display-5">Pedido No. <span><%= @order.id %></span></h1>
 <hr class="my-2">
+<legend>Datos del pedido</legend>
+
 <%= form_for(@order) do |f| %>
-<fieldset>
-    <legend>Datos del pedido</legend>
-    <div class="d-flex flex-wrap justify-content-around">
-        
+<fieldset>    
+    <div class="d-flex flex-wrap justify-content-start">
         <div class="form-group">
             <label for="date" class="col-sm-2 col-form-label">Fecha</label>
             <div class="col-sm-10">
@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group align-self-center">
             <%= f.collection_select(:customer_id, Customer.where(user: current_user).order(created_at: :desc), :id, :name, {prompt: "Elige un Cliente"}) %>
         </div>
     </div>
@@ -20,23 +20,17 @@
 
 <%= render  "table_products" %>
 
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-end">
     <div>
         <div class="form-group">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <label for="total" class="col-sm-2 col-form-label">Total</label>
             <div class="col-sm-10">
                 <input type="text" readonly="" class="form-control-plaintext p-1 border border-dark border-top-0"
-                    id="staticEmail" value="email@example.com">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-                <input type="text" readonly="" class="form-control-plaintext p-1 border border-dark border-top-0"
-                    id="staticEmail" value="email@example.com">
+                    id="total" value='<%= @order.total %>'>
             </div>
         </div>
     </div>
 </div>
 
 <% end %>
+<%= link_to 'volver', orders_path %>

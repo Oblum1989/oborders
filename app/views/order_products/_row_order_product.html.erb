@@ -3,7 +3,7 @@
     <th scope="row"><%= order_product.id %></th>
     <td><%= order_product.product.name%></td>
     <td><%= order_product.quantity %></td>
-    <td>subtotal</td>
+    <td><%= order_product.subtotal%></td>
     <td><%= fa_icon "trash" %> <%= fa_icon "pencil" %></td>
 </tr>
 <% end %>
