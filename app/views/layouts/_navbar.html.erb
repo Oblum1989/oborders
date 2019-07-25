@@ -13,17 +13,7 @@
             <li class="nav-item">
                 <%= link_to  "Productos", products_index_path, class: "nav-link" %>
             </li>
+            <%= render "layouts/user_signed" %>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-            aria-label="Toggle navigation">
-            Menu
-            <%= fa_icon "bars" %>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <%= render "layouts/user_signed" %>
-            </ul>
-        </div>
     </div>
 </nav>

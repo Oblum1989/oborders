@@ -1,5 +1,5 @@
 class OrderProductsController < ApplicationController
-  before_action :set_order_product, only: []	
+  before_action :set_order_product, only: [:destroy]	
 
 	def new
     @order_product = OrderProduct.new
@@ -17,6 +17,12 @@ class OrderProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @order_product.destroy
+    flash[:notice] = "El producto se eliminó correctamente"
+    redirect_to edit_order_path(@order_product.order)
+  end
+
   private
 
     def order_product_params
@@ -24,7 +30,7 @@ class OrderProductsController < ApplicationController
     end
 
     def set_order_product
-      @order_product = OrderProduct.find(params[:order_id].to_i)
+      @order_product = OrderProduct.find(params[:id])
     end
 
 end

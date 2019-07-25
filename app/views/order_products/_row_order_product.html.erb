@@ -4,6 +4,10 @@
     <td><%= order_product.product.name%></td>
     <td><%= order_product.quantity %></td>
     <td><%= order_product.subtotal%></td>
-    <td><%= fa_icon "trash" %> <%= fa_icon "pencil" %></td>
+    <td> 
+        <%= link_to  order_product, method: :delete, data: { confirm: 'Estas seguro?' } do %>
+            <%= fa_stacked_icon "trash inverse", base: "circle" %>
+        <% end %>
+    </td>
 </tr>
 <% end %>
