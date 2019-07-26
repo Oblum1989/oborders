@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
-                <%= f.collection_select(:customer_id, Customer.where(user: current_user).order(created_at: :desc), :id, :name, {prompt: "Elige un Cliente"}) %>
+                <%= f.collection_select(:customer_id, Customer.where(user: current_user).order(created_at: :desc), :id, :name, {prompt: "Elige un Cliente"}, class: 'form-control') %>
             </div>
         </div>
 
