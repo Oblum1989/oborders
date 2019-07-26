@@ -4,6 +4,8 @@ class Order < ApplicationRecord
 	has_many :order_products
 	has_many :products, through: :order_products, dependent: :destroy
 
+	validates :date, presence: true
+
 	def total
 		details = self.order_products
 
@@ -21,7 +23,7 @@ class Order < ApplicationRecord
 		details.flat_map do |d|
 			total += d.quantity * d.product.price
 		end
-		total
+		((total * 19)/100) + total
 	end
 
 end

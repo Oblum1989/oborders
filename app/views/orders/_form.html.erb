@@ -1,31 +1,30 @@
-<h1 class="display-5">Nuevo Pedido</h1>
-<hr class="my-2">
-<%= form_for(@order) do |f| %>
-<fieldset>
-    <legend>Datos del pedido</legend>
-    <div class="d-flex flex-wrap justify-content-around">
-        
-        <div class="form-group">
-            <label for="date" class="col-sm-2 col-form-label">Fecha</label>
-            <div class="col-sm-10">
-                <%= f.date_field :date, placeholder: "Fecha", class: "form-control" %>
+
+
+<div id="product-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= title %></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <%= form_for(@order) do |f| %>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="date" class="col-sm-2 col-form-label">Fecha</label>
+                <div class="col-sm-10">
+                    <%= f.date_field :date, placeholder: "Fecha", class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
+                <%= f.collection_select(:customer_id, Customer.where(user: current_user).order(created_at: :desc), :id, :name, {prompt: "Elige un Cliente"}) %>
             </div>
         </div>
 
-        <div class="form-group">
-            <%= f.collection_select(:customer_id, Customer.where(user: current_user).order(created_at: :desc), :id, :name, {prompt: "Elige un Cliente"}) %>
-        </div>
-    </div>
-</fieldset>
-
-
-
-<div class="d-flex justify-content-between">
-    <div>
-        <div>
+        <div class="modal-footer">
             <%= f.submit 'Crear', class: "btn btn-primary btn-block" %>
         </div>
+      <% end %>
     </div>
+  </div>
 </div>
-
-<% end %>

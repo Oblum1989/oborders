@@ -2,7 +2,7 @@
     <th scope="row"><%= order.id %></th>
     <td><%= order.customer.name %></td>
     <td><%= order.date.strftime("%d/%m/%Y") %></td>
-    <td><%=  %></td>
+    <td><%= order.total_iva %></td>
     <td> 
         <%= link_to  edit_order_path(order) do %>
             <%= fa_stacked_icon "pencil inverse", base: "circle" %>

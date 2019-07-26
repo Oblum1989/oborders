@@ -14,7 +14,7 @@
     </tbody>
 </table>
 <p class="lead">
-    <%= link_to new_order_path, class: "btn btn-primary btn-lg" do %>
+    <%= link_to new_order_path, remote: true, class: "btn btn-primary btn-lg" do %>
         <%= fa_icon "plus" %> Nuevo Pedido
     <% end %>
 </p>
